@@ -149,31 +149,39 @@
                 },
                 mouseover: highlightFeature,
             });
+
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['country'] !== null ? autolinker.link(String(feature.properties['country']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Country:</th>\
+                        <td>' + (feature.properties['country'] !== null ? autolinker.link(String(feature.properties['country']).toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['capital'] !== null ? autolinker.link(String(feature.properties['capital']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Capital:</th>\
+                        <td>' + (feature.properties['capital'] !== null ? autolinker.link(String(feature.properties['capital']).toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['gdp(us$)'] !== null ? autolinker.link(String(feature.properties['gdp(us$)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">GDP (US$):</th>\
+                        <td>' + (feature.properties['gdp(us$)'] !== null ? autolinker.link(String(feature.properties['gdp(us$)']).toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['export -go'] !== null ? autolinker.link(String(feature.properties['export -go']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">export:</th>\
+                        <td>' + (feature.properties['export -go'] !== null ? autolinker.link(String(feature.properties['export -go']).toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['factbook'] !== null ? autolinker.link(String(feature.properties['factbook']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Factbook:</th>\
+                        <td>' + (feature.properties['factbook'] !== null ? autolinker.link(String(feature.properties['factbook']).toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['pop_int'] !== null ? autolinker.link(String(feature.properties['pop_int']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">population:</th>\
+                        <td>' + (feature.properties['pop_int'] !== null ? autolinker.link(String(feature.properties['pop_int']).toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
+            
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            layer.on('popupopen', function(e) {
+                addClassToPopupIfMedia(content, e.popup);
+            });
+            layer.bindPopup(content, { maxHeight: 400 });
         }
 
         function style_lac_1_0(feature) {
