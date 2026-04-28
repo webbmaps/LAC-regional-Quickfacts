@@ -173,7 +173,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">population:</th>\
-                        <td>' + (feature.properties['pop_int'] !== null ? autolinker.link(String(feature.properties['pop_int']).toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['pop_int'] !== null ? parseFloat(feature.properties['pop_int']).toLocaleString() : '') + '</td>\
                     </tr>\
                 </table>';
             
